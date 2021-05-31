@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border header" mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Seguimiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="infoRestaurant">
+    <img src="assets/test/rest2.jpg" alt="" class="portada">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <h5>Restaurant Toro Gordo</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing </p>
+          <div class="d-flex">
+            <ion-label><ion-icon name="call-outline" slot="start"></ion-icon> Tel: 02572515995</ion-label>
+            <rating class="editStar detail" [(ngModel)]="rating"
+              readonly="true"
+              size="10px"
+              (ngModelChange)="onModelChange($event)">
+          </rating>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="bodyTracing">
+    <h5 class="text">¡Aca podrás ver el status de tu compra!</h5>
+    <ion-list>
+      <ion-item lines="none">
+        <ion-icon name="hourglass-outline" slot="start"></ion-icon>
+        <ion-label>
+          <b>Esperando aprobación</b>
+          <p>El restaurante aún no ha aprobado tu pedido.</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none" class="status-border" routerLink="/pay-orders">
+        <ion-icon name="wallet-outline" slot="start"></ion-icon>
+        <ion-label>
+          <b>Pagar</b>
+          <p>Realiza el pago para continuar con el proceso</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="disabled" lines="none">
+        <ion-icon name="checkbox-outline"  slot="start"></ion-icon>
+        <ion-label>
+          <b>Preparando</b>
+          <p>Su pedido esta en proceeso</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="disabled" lines="none">
+        <ion-icon name="bicycle-outline" slot="start"></ion-icon>
+        <ion-label>
+          <b>Enviado</b>
+          <p>Mira donde viene tu pedido</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="disabled" lines="none">
+        <ion-icon name="star-outline" slot="start"></ion-icon>
+        <ion-label>
+          <b>Calificar</b>
+          <p>¡Danos tu opinión!</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

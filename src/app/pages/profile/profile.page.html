@@ -1,0 +1,73 @@
+<!-- <ion-header class="ion-no-border header" mode="md">
+  <ion-toolbar>
+    <ion-title>Perfíl</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content>
+  <div class="boxPerfil">
+    <ion-list>
+      <ion-item lines="none"> 
+        <ion-thumbnail slot="start">
+          <img src="assets/images/avatar.png">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>Juan Gonzalez</h3>
+          <p>juangonzaleze04@gmail.com</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="boxProfile">
+    <ion-list>
+      <ion-item lines="none">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h5>Direccion</h5>
+          <p>Urb Guanaguanare calle 7 casa 257</p>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-label>Contraseña </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item mode="md" lines="none">
+        <ion-icon name="list-outline" slots="start"></ion-icon>
+        <ion-label>Pedidos </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+      <!-- <ion-item mode="md" lines="none">
+        <ion-icon name="person-outline" slots="start"></ion-icon>
+        <ion-label>
+          Modo: <span>Cliente</span>
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item> -->
+      <ion-item mode="md" lines="none" routerLink="/favorites">
+        <ion-icon name="heart-outline" slots="start"></ion-icon>
+        <ion-label>Favoritos </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item mode="md" lines="none">
+        <ion-icon name="reader-outline" slots="start"></ion-icon>
+        <ion-label>Historial </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item mode="md" lines="none">
+        <ion-icon name="document-text-outline" slots="start"></ion-icon>
+        <ion-label>Políticas y privacidad </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item mode="md" lines="none">
+        <ion-icon name="pencil-outline" slots="start"></ion-icon>
+        <ion-label>Términos y condiciones</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item mode="md" lines="none" (click)="logout()">
+        <ion-icon name="log-out-outline" slots="start"></ion-icon>
+        <ion-label>Salir </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

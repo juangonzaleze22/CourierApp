@@ -1,0 +1,90 @@
+<ion-content>
+  <div class="boxLogin">
+    <ion-list >
+      <h5>Crea tu cuenta</h5>
+      <form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="Nombre" formControlName="name" required ></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required">
+            El nombre es requerido
+          </p>
+          <p class="container-error-message" *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.minlength">
+            El nombre debe tener al menos 4 carácteres.
+          </p>
+        </div>
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="Apellido" formControlName="lastname"></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(registerFormControl.lastname.touched || submitted) && registerFormControl.lastname.errors?.required">
+            El apellido es requeridoo
+          </p>
+          <p class="container-error-message" *ngIf="(registerFormControl.lastname.touched || submitted) && registerFormControl.lastname.errors?.minlength">
+            El apellido debe tener al menos 4 carácteres.
+          </p>
+        </div>
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="Username" formControlName="username"></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.required">
+            El username es requeridoo
+          </p>
+          <p class="container-error-message" *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.minlength">
+            El username debe tener al menos 4 carácteres.
+          </p>
+        </div>
+        <ion-item lines="none">
+          <ion-input type="email" placeholder="Correo electrónico" formControlName="email"></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger">
+          <p class="container-error-message"  *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+            El correo electrónico es requerido
+          </p>
+          <p class="container-error-message" *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.email">
+            Elija un correo electrónico válido
+          </p>
+        </div>
+        <ion-item lines="none" class="password">
+          <ion-input [type]="showPassword? 'text': 'password'" placeholder="Contraseña" formControlName="password"></ion-input>
+          <ion-button (click)="showPassword = !showPassword">
+            <ion-icon [name]="showPassword? 'eye-off-outline': 'eye-outline'"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+           La contraseña es requerida
+          </p>
+
+          <p *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.invalidPassword">
+            Password should have minimum 6 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number
+          </p>
+        </div>
+        <ion-item lines="none" class="password">
+          <ion-input [type]="showConfirmPassword? 'text' : 'password'" placeholder="Confirmar contraseña" formControlName="confirmPassword"></ion-input>
+          <ion-button (click)="showConfirmPassword = !showConfirmPassword">
+            <ion-icon [name]="showConfirmPassword? 'eye-off-outline': 'eye-outline'"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <div class="container-error-message">
+            <p class="text-danger"
+              *ngIf="(registerFormControl.confirmPassword.touched || submitted)&& registerFormControl.confirmPassword.errors?.required">
+              Confirm Password is required
+            </p>
+            <p class="text-danger"
+                *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.passwordMismatch">
+                Passwords doesnot match
+            </p>
+          </div>
+        </div>  
+        <div class="buttons">
+          <ion-button ion-button block mode="md"  type="submit" [disabled]="!registerForm.valid">Crear cuenta</ion-button>
+          <ion-button ion-button block mode="md" routerLink="/">Volver</ion-button>
+        </div>
+        </form>
+    </ion-list>
+  </div>
+</ion-content>

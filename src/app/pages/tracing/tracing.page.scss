@@ -1,0 +1,152 @@
+:host{
+  /*   ion-content{
+        --background: #f9f9f9;
+    } */
+    .infoRestaurant{
+        ion-row, ion-col{
+            padding: 0;
+        }
+        ion-grid{
+            padding: 10px;
+            margin: 10px 15px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 1px 1px 7px #c1c1c1;
+          
+        }
+
+       img{
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+       }
+        h5{
+            font-size: 18px;
+            margin: 0 0 5px;
+            color: #343434;
+            font-weight: bold;
+        }
+        p{
+            margin: 0;
+            color: #666;
+            font-size: 15px;
+        }
+        .d-flex{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            border-top: 1px solid #c1c1c1;
+            padding-top: 5px;
+            ion-label{
+                display:flex;
+                align-items: center;
+                color: #666;
+                font-size: 15px;
+                padding-top: 2px;
+                ion-icon{
+                    font-size: 20px;
+                    color: var(--primary);
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+    .bodyTracing{
+        padding: 10px;
+        .text{
+            color: #343434;
+            margin: 5px auto 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        ion-list{
+            --background: transparent;
+            background: transparent;
+            padding: 7px 5px;
+            ion-item{
+                margin-bottom: 15px;
+                --background: #fff;
+                border-radius: 5px;
+                box-shadow: 1px 1px 6px #c1c1c1;
+                ion-icon{
+                    
+                    font-size: 30px;
+                    color: var(--primary);
+                    margin-right: 25px;
+                }
+                ion-label{
+                    white-space: normal;
+                    line-height: 15px;
+                    height: 60px;
+                    -webkit-line-clamp: initial;
+                    overflow: initial;
+                    color: #343434;
+                    b{
+                        margin-bottom: 5px;
+                        display: block;
+                    }
+                }
+            }
+            .status-border{
+               box-shadow: 1px 1px 6px var(--primary);
+            }
+            ion-item.disabled{
+                pointer-events: none;
+                opacity: .6;
+            }
+        }
+
+        .status{
+            position: relative;
+            .circle{
+                width: 200px;
+                height: 200px;
+                margin: 30px auto;
+                text-align: center;
+                border: 7px solid #d1d1d1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transform: rotate(45deg);
+                transition: .3s;
+            }
+
+            .status1{
+                border-top-color: var(--primary);
+            }
+
+            .status2{
+                border-top-color: var(--primary);
+                border-right-color: var(--primary);
+
+            }
+            .status3{
+                border-top-color: var(--primary);
+                border-right-color: var(--primary);
+                border-bottom-color: var(--primary);
+            }
+            .status4{
+                border-color: var(--primary);
+            }
+
+            .porcentaje{
+                color: var(--primary);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+                font-size: 40px;
+            }
+        }
+    }
+
+    @keyframes zoomEffect {
+        0% {transform: scale(1)}
+        50% {transform: scale(1.050)}
+        100% {transform: scale(1)}
+    }
+}

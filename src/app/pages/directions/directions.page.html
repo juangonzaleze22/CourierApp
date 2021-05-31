@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border header" mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Seleccione una dirección</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="maprouter">
+    <div class="gmap_canvas">
+      <iframe width="100%" height="240" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+      </iframe>
+    </div>
+  </div>
+  <ion-list>
+    <div class="box">
+      <ion-item lines="none">
+        <ion-label position="stacked">Escriba una direccion</ion-label>
+        <ion-input></ion-input>
+        <ion-button slot="end"><ion-icon name="add-outline"></ion-icon></ion-button>
+      </ion-item>
+    </div>
+    <div class="box">
+      <ion-radio-group>
+        <ion-item lines="none">
+          <ion-label>Urbanizacion guanaguanare calle 7 casa 257</ion-label>
+          <ion-radio slot="end" mode="md" value="direction1"></ion-radio>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>La arenosa, carrera 13 con calle 10-11</ion-label>
+          <ion-radio slot="end" mode="md" value="direction2"></ion-radio>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>La comunidad</ion-label>
+          <ion-radio slot="end" mode="md" value="direction3"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </div>
+  </ion-list>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button class="btnRedBlock" (click)="dismiss()">
+    Aceptar
+  </ion-button>
+</ion-footer>

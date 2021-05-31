@@ -1,0 +1,172 @@
+<ion-header class="ion-no-border header" mode="md">
+  <ion-toolbar>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-segment scrollable value="ordenes" (ionChange)="segmentChanged($event)" mode="md">
+    <ion-segment-button value="ordenes">
+      Ordenes
+    </ion-segment-button>
+    <ion-segment-button value="seguimientos">
+      Seguimientos
+    </ion-segment-button>
+  </ion-segment>
+  
+  <ng-template [ngIf]="ordenes">
+    <div class="boxPrices">
+      <div class="info">
+        <ion-list>
+          <ion-item lines="none">
+            Subtotal
+            <span slot="end">50$</span>
+          </ion-item>
+          <ion-item lines="none">
+            15% Comisión
+            <span slot="end">7.5$</span>
+          </ion-item>
+          <ion-item lines="none">
+            Delivery
+            <span slot="end">1.50$</span>
+          </ion-item>
+          <ion-item lines="none" class="last">
+            Total
+            <span slot="end">59.00$</span>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+    <div class="boxList">
+      <ion-list>
+        <ion-item-sliding>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img src="assets/test/pasta1.jpg">
+            </ion-thumbnail>
+              <ion-label>
+                <h3><span class="quality">2</span> Pasta boloñesa</h3>
+                <p>dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolore aliquid beatae voluptatibus recusandae repellat quisquam </p>
+              </ion-label>
+            <div slot="end" class="price">
+              <span>20.00$</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="delete(item)">
+              <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img src="assets/test/pasta2.jpg">
+            </ion-thumbnail>
+              <ion-label>
+                <h3>Pasta a la carbonara</h3>
+                <p>dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolore aliquid beatae voluptatibus recusandae repellat quisquam </p>
+              </ion-label>
+            <div slot="end" class="price">  
+              <span>10.00$</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="delete(item)">
+              <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img src="assets/test/plato1.jpg">
+            </ion-thumbnail>
+              <ion-label>
+                <h3>Plato sencillo</h3>
+                <p>dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolore aliquid beatae voluptatibus recusandae repellat quisquam </p>
+              </ion-label>
+            <div slot="end" class="price">
+              <span>10.00$</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="delete(item)">
+              <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="seguimientos">
+    <div class="boxSeguimiento">
+      <ion-card (click)="tracing()">
+        <ion-card-header>
+          <img class="imgCard" src="assets/test/rest1.jpg" />
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>La curva</ion-card-title>
+          <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+          <div class="status">
+            <p><span class="badge red"></span>Por pagar</p>
+            <!-- <p><span class="badge yellow"></span>Esperando aprobacón de pago</p> -->
+            <!-- <p><span class="badge orange"></span>En proceso</p>-->
+             <!--<p><span class="badge greeg"></span>Enviado</p> -->
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <ion-card (click)="tracing()">
+        <ion-card-header>
+          <img class="imgCard" src="assets/test/rest1.jpg" />
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>La curva</ion-card-title>
+          <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+          <div class="status">
+            <!-- <p><span class="badge red"></span>Por pagar</p> -->
+            <p><span class="badge yellow"></span>Esperando aprobacón de pago</p>
+            <!-- <p><span class="badge orange"></span>En proceso</p>-->
+             <!--<p><span class="badge greeg"></span>Enviado</p> -->
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <ion-card (click)="tracing()">
+        <ion-card-header>
+          <img class="imgCard" src="assets/test/rest1.jpg" />
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>La curva</ion-card-title>
+          <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+          <div class="status">
+            <!-- <p><span class="badge red"></span>Por pagar</p> -->
+            <!-- <p><span class="badge yellow"></span>Esperando aprobacón de pago</p> -->
+            <p><span class="badge orange"></span>En proceso</p>
+            <!-- <p><span class="badge greeg"></span>Enviado</p> -->
+          </div>
+        </ion-card-content>
+      </ion-card>
+            <ion-card (click)="tracing()">
+        <ion-card-header>
+          <img class="imgCard" src="assets/test/rest1.jpg" />
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>La curva</ion-card-title>
+          <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+          <div class="status">
+            <!-- <p><span class="badge red"></span>Por pagar</p> -->
+            <!-- <p><span class="badge yellow"></span>Esperando aprobacón de pago</p> -->
+            <!-- <p><span class="badge orange"></span>En proceso</p>-->
+            <p><span class="badge green"></span>Enviado</p> 
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ng-template>
+
+</ion-content>
+
+<ion-footer class="ion-no-border header" mode="md"  *ngIf="ordenes">
+  <ion-button class="btnRedBlock"  mode="md">
+    Realizar pedido
+  </ion-button>
+</ion-footer>

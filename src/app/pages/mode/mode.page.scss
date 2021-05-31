@@ -1,0 +1,37 @@
+:host{
+    ion-content{
+        --background: url('../../../assets/images/mode/mode.jpg') 0 0/100% 100% no-repeat;
+        position: relative;
+        .bodyMode{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            ion-list{
+                background: transparent;
+                --background: transparent;
+                ion-item{
+                    background: transparent;
+                    --background: transparent;
+                    margin-bottom: 30px;
+                    ion-label{
+                        white-space: normal;
+                        h5{
+                            font-weight: bold;
+                            color: #343434;
+                            margin-bottom: 0;
+                            font-size: 20px;
+                        }
+                        p{
+                            line-height: 1.2;
+                        }
+                    }
+                    ion-icon{
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+    }
+}

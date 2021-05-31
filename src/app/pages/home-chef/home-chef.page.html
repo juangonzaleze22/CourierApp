@@ -1,0 +1,80 @@
+<ion-content class="boxDetail">
+  <div class="boxSlider">
+    <!-- <span class="category">Almuerzo</span> -->
+    <ion-slides [options]="ImageOption">
+      <ion-slide>
+        <img src="assets/test/rest1.jpg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/test/rest2.jpg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/test/rest1.jpg" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="boxDescription">
+    <div class="item">
+      <h5>Restaurante la Orquidea</h5>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate quibusdam nulla repellendus ad ratione, in error natus architecto repudiandae suscipit, incidunt accusantium harum quia. Quisquam, labore a! Architecto, sed natus!</p>
+      <p class="direction"><ion-icon name="location-outline"></ion-icon>Seminario 687, Ñuñoa, Santiago de Chile; </p>
+      <div class="boxRating">
+        <div class="buttons">
+          <ion-button class="buttonShared" mode="md">
+            <ion-icon name="share-social-outline"></ion-icon>
+          </ion-button>
+          <ion-button class="buttonShared" mode="md">
+            <ion-icon name="heart-outline"></ion-icon>
+          </ion-button>
+          <ion-button class="buttonShared" mode="md">
+            <ion-icon name="pencil-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <rating class="editStar detail" [(ngModel)]="rating"
+              readonly="true"
+              size="default">
+          </rating>
+      </div>
+    </div>
+    <div class="option">
+      <div class="d-flex-head">
+        <h5 class="titlePlate">Platos</h5>
+        <ion-button mode="md" routerLink="/tabs/tabs/add-plates">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </div>
+        <ion-list mode="md">
+          <ion-item-sliding mode="md" *ngFor="let item  of products; let i = index" >
+            <ion-item lines="none" >
+              <ion-card >
+                <ion-card-header>
+                  <img class="imgCard no-image" src="/assets/no-image.png" *ngIf="item.photos.length == 0"/>
+                  <img class="imgCard" src="{{item.photos[0].url}}" *ngIf="item.photos.length != 0"/>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-card-title>{{item.name}}</ion-card-title>
+                  <p class="text">{{item.description}}</p>
+                  <div class="price">
+                    <!-- <rating class="editStar" [(ngModel)]="item.rating"
+                        readonly="true"
+                        size="10px"
+                        (ngModelChange)="onModelChange($event)">
+                    </rating> -->
+                    <span>{{item.price | currency:'USD':'$':'1.2-2'}}</span>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-item>
+            <ion-item-options mode="md" side="end">
+              <ion-item-option >
+                <ion-button mode="md" (click)="deleteAlert(item._id)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+                <ion-button mode="md" (click)="updateProduct(item._id)"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+                <ion-toggle mode="md"></ion-toggle>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+    </div>
+<!--     <ion-button class="btnRedBlock"  mode="md">Agregar al carrito</ion-button> -->
+  </div>
+</ion-content>

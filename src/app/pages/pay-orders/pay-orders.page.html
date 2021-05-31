@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border header" mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pagar</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="box">
+    <ion-list>
+      <h5 class="text">Recuerda seleccionar una dirección a la cual te llevaran el pedido</h5>
+      <ion-item lines="none">
+        <ion-label>Delivery</ion-label>
+        <ion-toggle mode="md" [(ngModel)]="statusDelivery"></ion-toggle>
+      </ion-item>
+      <ion-item lines="none" *ngIf="statusDelivery">
+        <ion-label>
+          <h5>Direccion</h5>
+          <p>Urb Guanaguanare calle 7 casa 257</p>
+        </ion-label>
+        <ion-icon name="location-outline" slot="end" (click)="modalDirection()"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="box">
+    <ion-radio-group value="imagen">
+      <ion-item lines="none">
+        <ion-label>Adjuntar imagen</ion-label>
+        <ion-radio slot="end" mode="md" value="imagen" (click)="selected('imagen')"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>Número de referencia</ion-label>
+        <ion-radio slot="end" mode="md" value="referencia" (click)="selected('referencia')"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </div>
+  <div class="box" >
+    <div *ngIf="section == 'imagen'">
+      <div class="form-group" >
+        <h5>Agregue su comprobante de pago</h5>
+        <p>(Pago móvil, transferencia, Paypal entre otros)</p>
+      </div>
+      <div class="imgThumbnail">
+        <img class="opacity" src="assets/no-image.png" alt="">
+      </div>
+    </div>
+    <ion-item lines="none" class="ion-no-padding referencia" *ngIf="section == 'referencia'">
+      <ion-label position="stacked">Ingrese número de referencia o transferencia</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-button class="btnRedBlock">Realizar pago</ion-button>
+  </div>
+</ion-content>

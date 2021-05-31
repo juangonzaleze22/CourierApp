@@ -1,0 +1,103 @@
+<ion-header class="ion-no-border header" mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="boxDetail">
+  <div class="boxSlider">
+    <span class="category">Almuerzo</span>
+    <ion-slides [options]="ImageOption">
+      <ion-slide>
+        <img src="assets/test/pasta1.jpg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/test/pasta2.jpg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/test/rest1.jpg" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="boxDescription">
+    <div class="item">
+      <h5>Pasta a la boloñesa</h5>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate quibusdam nulla repellendus ad ratione, in error natus architecto repudiandae suscipit, incidunt accusantium harum quia. Quisquam, labore a! Architecto, sed natus!</p>
+      <p class="direction"><ion-icon name="location-outline"></ion-icon>Seminario 687, Ñuñoa, Santiago de Chile; </p>
+      <div class="boxRating">
+        <div class="buttons">
+          <ion-button class="buttonShared" mode="md">
+            <ion-icon name="share-social-outline"></ion-icon>
+          </ion-button>
+          <ion-button class="buttonShared" mode="md">
+            <ion-icon name="heart-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <rating class="editStar detail" [(ngModel)]="rating"
+              readonly="true"
+              size="default">
+          </rating>
+      </div>
+    </div>
+    <div class="option">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div class="group">
+              <div class="left">
+                <ion-icon name="restaurant-outline"></ion-icon>
+                <span>Restaurate:</span>
+              </div>
+              <span class="titleRestaurante right">Toro Gordo</span>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <div class="group">
+              <div class="left">
+                <ion-icon name="hourglass-outline"></ion-icon>
+                <span>Duración:</span>
+              </div>
+              <span class="right">30 min</span>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <div class="group">
+              <div class="left">
+                <ion-icon name="add-outline"></ion-icon>
+                <span>Cantidad:</span>
+              </div>
+              <div class="right">
+                  <div class="quantity">
+                    <ion-button (click)="quantity + 1"><ion-icon name="remove-outline"></ion-icon></ion-button>
+                    <ion-input [value]="quantity"></ion-input>
+                    <ion-button (click)="quantity - 1"><ion-icon name="add-outline"></ion-icon></ion-button>
+                  </div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <div class="group">
+              <div class="left">
+                <ion-icon name="cash-outline"></ion-icon>
+                <span>Precio:</span>
+              </div>
+              <span class="right red">22.00$</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="option description">
+      <div class="group">
+        <div class="left">
+          <ion-icon name="document-text-outline"></ion-icon>
+          <span>Descripción:</span>
+        </div>
+      </div>
+      <h5>En este momento no tenemos disponible queso mozarella</h5>
+    </div>
+    <ion-button class="btnRedBlock"  mode="md">Agregar al carrito</ion-button>
+  </div>
+</ion-content>

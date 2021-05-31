@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="boxLogin">
+    <div class="headerLogo">
+      <div class="box">
+        <img class="logo" src="assets/images/002-comida-rapida.png" alt="">
+        <h5 class="title">CourriersApp</h5>
+      </div>
+    </div>
+    <ion-list>
+      <h5>Inicie sesión</h5>
+      <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <ion-item lines="none">
+          <ion-input formControlName="email" type="text" placeholder="Username o email" ></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+            El username o email es requerido
+          </p>
+          <p class="container-error-message" *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.minlength">
+            El nombre debe tener al menos 4 carácteres.
+          </p>
+        </div>
+        <ion-item lines="none">
+          <ion-input formControlName="password" type="password" placeholder="Contraseña" ></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+            El password es requerido
+          </p>
+          <p class="container-error-message" *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.minlength">
+            El password debe tener al menos 4 carácteres.
+          </p>
+        </div>
+        <div class="buttons">
+          <ion-button ion-button block mode="md" type="ngSubmit">Entrar</ion-button>
+          <ion-button ion-button block mode="md" routerLink="/register">Registrarse</ion-button>
+        </div>
+      </form>
+    </ion-list>
+  </div>
+</ion-content>

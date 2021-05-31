@@ -1,0 +1,338 @@
+<ion-header class="ion-no-border header" mode="md">
+  <ion-toolbar>
+    <ion-button mode="md" slot="start" (click)="openMenu()">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="text-center">CourriersApp</ion-title>
+    <ion-button mode="md" slot="end" (click)="search = !search">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  <ion-toolbar class="no-bg" *ngIf="search">
+    <ion-item mode="md" lines="none">
+      <ion-searchbar animated></ion-searchbar>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- Scrollable Segment -->
+  <ion-segment scrollable value="inicio" (ionChange)="segmentChanged($event)" mode="md">
+    <ion-segment-button value="inicio">
+      Para tí
+    </ion-segment-button>
+    <ion-segment-button value="productos">
+      Productos
+    </ion-segment-button>
+    <ion-segment-button value="restaurantes">
+      Restaurantes
+    </ion-segment-button>
+    <ion-segment-button value="categorias">
+      Categorías
+    </ion-segment-button>
+  </ion-segment>
+  <div class="body">
+    <div class="bodySegment inicio" *ngIf="inicio">
+      <div class="seccion">
+        <div class="boxTitle">
+          <h3 class="title">Mas vendidos</h3>
+          <ion-button>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide *ngFor="let item of masVendidos" routerLink="/product-details">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="{{item.img}}" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>{{item.title}}</ion-card-title>
+                <p class="text">{{item.text}}</p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="item.rating"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>{{item.price}}$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+      <div class="seccion">
+        <div class="boxTitle">
+          <h3 class="title">Recientes</h3>
+          <ion-button>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide *ngFor="let item of recientes" routerLink="/product-details">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="{{item.img}}" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>{{item.title}}</ion-card-title>
+                <p class="text">{{item.text}}</p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="item.rating"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>{{item.price}}$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+      <div class="seccion">
+        <div class="boxTitle">
+          <h3 class="title">Promoción</h3>
+          <ion-button>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide *ngFor="let item of promocion" routerLink="/product-details">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="{{item.img}}" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>{{item.title}}</ion-card-title>
+                <p class="text">{{item.text}}</p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="item.rating"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>{{item.price}}$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+    <div class="bodySegment products" *ngIf="productos">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="assets/test/plato1.jpg" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>Pasta boloñesa</ion-card-title>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="rate"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>5.00$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="assets/test/pasta2.jpg" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>Pasta boloñesa</ion-card-title>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="rate"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>5.00$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="assets/test/pasta1.jpg" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>Pasta boloñesa</ion-card-title>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="rate"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>5.00$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="assets/test/plato1.jpg" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>Pasta boloñesa</ion-card-title>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="rate"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>5.00$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="assets/test/plato1.jpg" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>Pasta boloñesa</ion-card-title>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="rate"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>5.00$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card>
+              <ion-card-header>
+                <img class="imgCard" src="assets/test/plato1.jpg" />
+              </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>Pasta boloñesa</ion-card-title>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+                <div class="price">
+                  <rating class="editStar" [(ngModel)]="rate"
+                      readonly="true"
+                      size="10px"
+                      (ngModelChange)="onModelChange($event)">
+                  </rating>
+                  <span>5.00$</span>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="bodySegment restaurantes" *ngIf="restaurantes">
+        <ion-card>
+          <ion-card-header>
+            <img class="imgCard" src="assets/test/rest1.jpg" />
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-title>La curva</ion-card-title>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+            <div class="price">
+              <rating class="editStar" [(ngModel)]="rate"
+                  readonly="true"
+                  size="10px"
+                  (ngModelChange)="onModelChange($event)">
+              </rating>
+              <span>1 km</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <img class="imgCard" src="assets/test/rest2.jpg" />
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-title>Toro Gordo</ion-card-title>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+            <div class="price">
+              <rating class="editStar" [(ngModel)]="rate"
+                  readonly="true"
+                  size="10px"
+                  (ngModelChange)="onModelChange($event)">
+              </rating>
+              <span>345 m</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <img class="imgCard" src="assets/test/rest1.jpg" />
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-title>El prospecto</ion-card-title>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque maiores </p>
+            <div class="price">
+              <rating class="editStar" [(ngModel)]="rate"
+                  readonly="true"
+                  size="10px"
+                  (ngModelChange)="onModelChange($event)">
+              </rating>
+              <span>14 km</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+    </div>
+    <div class="bodySegment categorias" *ngIf="categorias">
+      <div class="categoryButtons">
+        <div class="box">
+          <img src="assets/images/002-comida-rapida.png" alt="">
+          Comida rápida
+        </div>
+        <div class="box">
+          <img src="assets/images/015-pescado.png" alt="">
+          Mariscos
+        </div>
+        <div class="box">
+          <img src="assets/images/012-cafe.png" alt="">
+           Desayuno
+        </div>
+        <div class="box">
+          <img src="assets/images/013-vegetal.png" alt="">
+          Vegana
+        </div>
+        <div class="box">
+          <img src="assets/images/017-barbacoa.png" alt="">
+          Parrilla
+        </div>
+        <div class="box">
+          <img src="assets/images/016-ensalada.png" alt="">
+          Ensaladas
+        </div>
+        <div class="box">
+          <img src="assets/images/010-pizza.png" alt="">
+          Pizzas
+        </div>
+        <div class="box">
+          <img src="assets/images/018-pastel-1.png" alt="">
+          Postres
+        </div>
+        <div class="box">
+          <img src="assets/images/009-coctel.png" alt="">
+          Bebidas
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

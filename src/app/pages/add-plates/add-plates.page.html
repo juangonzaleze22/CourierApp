@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border header header-chef" mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="boxLogin">
+    <ion-list>
+      <form action="" [formGroup]="formProduct" (ngSubmit)="onSubmit()" >
+        <ion-item lines="none">
+          <ion-label position="floating">Nombre del producto</ion-label>
+          <ion-input type="text" formControlName="name" required></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(formProduct.controls.name.touched || submitted) && formProduct.controls.name.errors?.required">
+            El nombre es requerido
+          </p>
+        </div>
+        <ion-item lines="none">
+          <ion-label position="floating">Descripción del producto</ion-label>
+          <ion-input formControlName="description" type="text"></ion-input>
+        </ion-item>
+       
+        <!-- <ion-item lines="none">
+          <ion-label>Duración</ion-label>
+          <ion-select value="15" cancelText="Dismiss" slot="end">
+            <ion-select-option value="15">15 min</ion-select-option>
+            <ion-select-option value="30">30 min</ion-select-option>
+            <ion-select-option value="45">45 min</ion-select-option>
+            <ion-select-option value="60">60 min</ion-select-option>
+          </ion-select>
+        </ion-item> -->
+        <div class="imgAdd">
+          <h5>Agrega una imagen a tu plato</h5>
+          <ion-slides [options]="slideOpts">
+            <!-- add image -->
+            <ion-slide class="img-nothing">
+              <label for="files" class="addImage">
+                <input type="file" id="files" multiple (change)="detectFiles($event)" accept="image/x-png,image/jpeg" max="3">
+                <img src="assets/no-image.png" alt="" >
+                <span>Agregar</span>
+              </label>
+            </ion-slide>
+            <!-- apply for -->
+            <ion-slide formArrayName="photos" *ngFor="let photo of photos.value; let i = index;">
+              <div class="box" [formGroupName]="i" [ngClass]="{ 'active': alertImg }">
+                <img [src]="productId ? photo.url.url : photo.url" alt="">
+                <ion-button (click)="removePhoto(i)" >
+                  <ion-icon name="close-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </ion-slide>
+          </ion-slides>
+          <h5 *ngIf="!alertImg" class="info-text">*Recuerda que la imagen no debe pesar mas de 5MB</h5>
+          <h5 *ngIf="alertImg" class="info-text red">*Esta imagen es muy grande</h5>
+        </div>
+        <ion-item lines="none">
+          <ion-label position="floating">Comentario</ion-label>
+          <ion-input type="text"  formControlName="comment"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="price">
+          <ion-label>Precio</ion-label>
+          <ion-input type="number" slot="end" placeholder="0,00 $"  formControlName="price" required></ion-input>
+        </ion-item>
+        <div class="Validation_alert alert-danger" >
+          <p class="container-error-message" *ngIf="(formProduct.controls.price.touched || submitted) && formProduct.controls.price.errors?.required">
+            El precio es requerido
+          </p>
+        </div>
+        <div class="buttons">
+          <ion-button ion-button block mode="md" type="submit">Añadir plato</ion-button>
+          <ion-button ion-button block mode="md" (click)="back()">Volver</ion-button>
+        </div>
+      </form>
+    </ion-list>
+  </div>
+</ion-content>

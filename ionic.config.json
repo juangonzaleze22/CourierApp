@@ -1,0 +1,8 @@
+{
+  "name": "CourriersApp",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

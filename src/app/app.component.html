@@ -1,0 +1,46 @@
+<ion-app>
+  <!-- Side menu -->
+  <ion-menu side="start" menuId="first" contentId="main" class="MenuStyle">
+      <div class="header">
+        <img src="assets/images/003-tenedor.png" alt="">
+        <h5>CourrierApp</h5>
+      </div>
+    <ion-content>
+      <ion-list>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="person-outline" slots="start"></ion-icon>
+          Cliente
+        </ion-item>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="home-outline" slots="start"></ion-icon>
+          Restaurante
+        </ion-item>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="car-sport-outline" slots="start"></ion-icon>
+          Delivery
+        </ion-item>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="heart-outline" slots="start"></ion-icon>
+          Favoritos
+        </ion-item>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="reader-outline" slots="start"></ion-icon>
+          Historial
+        </ion-item>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="document-text-outline" slots="start"></ion-icon>
+          Políticas y privacidad
+        </ion-item>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="pencil-outline" slots="start"></ion-icon>
+          Términos y condiciones
+        </ion-item>
+        <ion-item mode="md" lines="none">
+          <ion-icon name="log-out-outline" slots="start"></ion-icon>
+          Salir
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

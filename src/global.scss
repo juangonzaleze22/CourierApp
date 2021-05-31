@@ -1,0 +1,173 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/* style buttons */
+
+.btnRedBlock{
+    margin: 20px auto;
+    width: 100%;
+    --border-radius: 0;
+    background: var(--primary);
+    color: #fff;
+    --background: var(--primary);
+    border-radius: 5px;
+}
+ion-segment{
+    background-color: #fff;
+    ion-segment-button{
+        letter-spacing: 0;
+        text-transform: initial;
+        margin: 0 15px;
+        --padding-end: 0;
+        --padding-start: 0;
+        --background-hover: var(--primary);
+        --background-focused: var(--primary);
+        --color-checked: var(--primary);
+        --indicator-box-shadow: none;
+        --indicator-color: var(--primary);
+        font-size: 16px;
+    }
+}
+/* General style */
+ion-header{
+    ion-toolbar{
+        /* --background: var(--primary); */
+        border-bottom: 1px solid #ececec;
+    }
+    ion-button, ion-back-button {
+        --background:transparent;
+        --background-activated: transparent;
+        --background-focused: transparent;
+        --background-hover: transparent;
+        --color: var(--primary);
+        font-size: 22px;
+        height: 40px;
+        --box-shadow: none;
+    }
+
+    ion-title{
+        --color:var(--black);
+    }
+    .text-center{
+        text-align: center;
+    }
+
+    .no-bg{
+        --background: transparent;
+        ion-item{
+            ion-searchbar{
+                border-bottom: 1px solid #d1d1d1;
+                --box-shadow: none;
+            }
+        }
+    }
+}
+
+.header-chef{
+    ion-toolbar{
+        --background: var(--primary) !important;
+        ion-title{
+            --color: #fff !important
+        }
+        ion-button, ion-back-button {
+            --color: #fff;
+        }
+    }
+}
+/*  ion-button */
+ion-button{
+    --box-shadow: none;
+    text-transform: none;
+    letter-spacing: 0;
+    border-radius: 5px;
+}
+
+.editStar{
+    max-width: 60%;
+    ion-buttons{
+        width: 100%;
+        ion-button{
+            -webkit-margin-start: 0px;
+            margin-inline-start: 0px;
+            -webkit-margin-end: 0px;
+            margin-inline-end: 0px;
+            --padding-start: 0 !important;
+            --padding-end: 0 !important;
+            margin-right: 2px !important;
+            width: 13px !important;
+            height: 30px !important;
+        }
+    }
+}
+.editStar.detail{
+    max-width: 100%;
+    ion-buttons{
+        justify-content: flex-end;
+        ion-button{
+            width: 20px !important;
+        }
+    }
+}
+
+/* Modals options */
+
+ion-modal{
+    .modal-wrapper {
+        height: auto;
+        top: 0%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute; 
+        display: block;  
+        overflow: hidden;
+    }
+}
+
+.modalDirection{
+    .modal-wrapper{
+        max-height:90vh;
+        width: 310px;
+    }
+}
+
+/* Text validation style */
+.Validation_alert{
+    margin: 5px 15px;
+    p{
+        margin: 0;
+        color: #fd2121;
+        font-size: 14px;
+        text-align: left;
+    }
+}
+
+
+.invalid {
+    border: 1px solid #ea6153;
+}

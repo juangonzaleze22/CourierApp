@@ -1,0 +1,82 @@
+:host{
+   /*  ion-content{
+        --background: #f9f9f9;
+    } */
+    .mapouter{
+        padding: 15px;
+        .gmap_canvas{
+            margin-bottom: 15px;
+        }
+        ion-card{
+            min-width: 100%;
+            box-shadow: none;
+            /* border: 1px solid #d1d1d1; */
+            box-shadow: 1px 1px 7px #c1c1c1;
+            border-radius: 5px;
+            outline: none;
+            display: flex;
+            height: 110px;
+            margin: auto auto 15px;
+            --background: #fff;
+            .imgCard{
+                height: 100px;
+                object-fit: cover;
+                object-position: center center;
+                width: 100%;
+            }
+            ion-card-header{
+                width: 100px;
+                vertical-align: middle;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 10px;
+                    min-width: 80px;
+                }
+            }
+            ion-card-content{
+                width: calc(100% - 100px);
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                ion-card-title{
+                    font-size: 16px;
+                    text-align: left;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    color: #343434;
+                    -webkit-box-orient: vertical; 
+                    line-height: 1.2;
+                    margin-bottom: 2.5px;
+                    font-weight: bold;
+                }
+                .text{
+                    font-size: 12px;
+                    text-align: left;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    color: #666;
+                    -webkit-box-orient: vertical; 
+                    line-height: 1.2;
+                    margin-bottom: 2.5px;
+                    height: 28px;
+                }
+                .price{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: auto;
+                    span{
+                        color: #666;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
